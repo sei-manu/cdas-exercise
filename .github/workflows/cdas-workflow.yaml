@@ -1,0 +1,31 @@
+name: CDAS CI Workflow for Go
+run-name: Go Mux application CI
+on:
+  push:
+    branches: 
+      - "main"
+  pull_request:
+    branches: 
+      - "main"
+
+env:
+  APP_DB_USERNAME: postgres
+  APP_DB_PASSWORD: postgres
+  APP_DB_NAME: postgres
+
+jobs:
+  Build and Test Go:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: 1.24
+
+    - name: Build
+      run: go build -v ./...
+
+    - name: Test
+      run: go test -v ./...
