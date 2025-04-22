@@ -42,6 +42,9 @@ func (a *App) Run(addr string) {
 func (a *App) getProduct(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, err := strconv.Atoi(vars["id"])
+
+	println("hello")
+
 	if err != nil {
 		respondWithError(w, http.StatusBadRequest, "Invalid product ID")
 		return
