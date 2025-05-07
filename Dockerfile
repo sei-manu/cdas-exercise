@@ -13,7 +13,7 @@ COPY main.go .
 RUN ls -la
 
 # Build the Go app and move it to /usr/
-RUN go build -o cdas-exercise main.go && mv cdas-exercise /usr/
+RUN go build -o cdas-exercise . && mv cdas-exercise /usr/
 
 # Expose port 8010
 EXPOSE 8010
