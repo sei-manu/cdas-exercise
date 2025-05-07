@@ -1,4 +1,4 @@
-name: CDAS CD workflow: Docker Image Publish for Go App
+name: "CDAS CD workflow: Docker Image Publish for Go App"
 
 on:
   workflow_run:
