@@ -10,13 +10,22 @@ vulnerability:
   ignore-unfixed: false # True would mean that vulnerabilities without a fix are ignored
   ignore:
 
-exit-code: 1  # Fail the pipeline if vulnerabilities are found
-
 misconfiguration:
   severity:
     - HIGH
     - CRITICAL
   ignore-unfixed: false # True would mean that vulnerabilities without a fix are ignored
+
+secret:
+  severity:
+    - HIGH
+  ignore:
+  # Ignore keys from external library
+    - '**/github.com/lib/pq@v1.10.9/certs/server.key'
+    - '**/github.com/lib/pq@v1.10.9/certs/postgresql.key'
+
+exit-code: 1  # Fail the pipeline if vulnerabilities are found
+
 
 scan:
   skip-dirs:
