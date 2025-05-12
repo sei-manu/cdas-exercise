@@ -1,3 +1,8 @@
+scanners:
+  - vuln
+  - config
+  - secret
+
 vulnerability:
   severity:
     - CRITICAL
@@ -6,6 +11,12 @@ vulnerability:
   ignore:
 
 exit-code: 1  # Fail the pipeline if vulnerabilities are found
+
+misconfiguration:
+  severity:
+    - HIGH
+    - CRITICAL
+  ignore-unfixed: false # True would mean that vulnerabilities without a fix are ignored
 
 scan:
   skip-dirs:

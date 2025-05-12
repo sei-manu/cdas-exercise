@@ -64,6 +64,7 @@ jobs:
         scan-type: 'fs'
         scan-ref: '.'
         trivy-config: trivy.yaml
+        format: 'table'
   
   sonarqube:
     needs: trivy-vulnerability-scan
