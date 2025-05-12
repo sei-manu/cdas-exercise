@@ -1,6 +1,6 @@
 module github.com/sei-manu/cdas-exercise
 
-go 1.20.1
+go 1.24.1
 
 require (
 	github.com/gorilla/mux v1.8.1
