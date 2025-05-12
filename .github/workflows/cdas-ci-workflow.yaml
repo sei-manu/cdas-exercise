@@ -51,8 +51,6 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-  name: build
-
   trivy-vulnerability-scan:
     needs: Build_and_Test
     runs-on: ubuntu-latest
