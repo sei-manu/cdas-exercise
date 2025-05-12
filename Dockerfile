@@ -1,4 +1,4 @@
-FROM golang:1.20-alpine
+FROM golang:1.24-alpine
 
 # Set maintainer label
 LABEL maintainer="s2410455010@fhoee.at"
@@ -6,8 +6,11 @@ LABEL maintainer="s2410455010@fhoee.at"
 # Set the working directory
 WORKDIR /src
 
-# Copy the local main.go file to the working directory
-COPY main.go .
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy all go files to the working directory
+COPY *.go .
 
 # List items in the working directory
 RUN ls -la
@@ -19,4 +22,4 @@ RUN go build -o cdas-exercise . && mv cdas-exercise /usr/
 EXPOSE 8010
 
 # Run the service when the container starts
-CMD ["/usr/myapp"]
+CMD ["/usr/cdas-exercise"]
