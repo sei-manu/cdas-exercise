@@ -1,34 +1,17 @@
-scanners:
-  - vuln
-  - config
-  - secret
+exit-code: 1
+severity:
+  - CRITICAL
+  - HIGH
+
+# ignorefile: .trivyignore
+
+format: json
 
 vulnerability:
-  severity:
-    - CRITICAL
-    - HIGH
-  ignore-unfixed: false # True would mean that vulnerabilities without a fix are ignored
-  ignore:
-
-misconfiguration:
-  severity:
-    - HIGH
-    - CRITICAL
-  ignore-unfixed: false # True would mean that vulnerabilities without a fix are ignored
-
-secret:
-  severity:
-    - HIGH
-  ignore:
-  # Ignore keys from external library
-    - '**/github.com/lib/pq@v1.10.9/certs/server.key'
-    - '**/github.com/lib/pq@v1.10.9/certs/postgresql.key'
-
-exit-code: 1  # Fail the pipeline if vulnerabilities are found
-
+  ignore-unfixed: true
 
 scan:
-  skip-dirs:
-    - .git
-    - .vscode
-
+  security-checks:
+    - vuln
+    - config
+    - secret

@@ -39,6 +39,8 @@ jobs:
         scan-type: 'image'
         image-ref: ${{ secrets.DOCKER_HUB_USERNAME }}/cdas-exercise:${{ env.GIT_SHA }}
         trivy-config: trivy.yaml
+        format: 'table'
+
 
     - name: Push Docker image (latest + GIT SHA)
       run: |
