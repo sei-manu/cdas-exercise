@@ -1,0 +1,14 @@
+vulnerability:
+  severity:
+    - CRITICAL
+    - HIGH
+  ignore-unfixed: false # True would mean that vulnerabilities without a fix are ignored
+  ignore:
+
+exit-code: 1  # Fail the pipeline if vulnerabilities are found
+
+scan:
+  skip-dirs:
+    - .git
+    - .vscode
+
